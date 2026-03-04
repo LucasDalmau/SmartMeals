@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a0a0a;
+  color: #e8e4de;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2825; border-radius: 3px; }
+
+/* Smooth transitions on interactive elements */
+button { transition: all 0.15s ease; }
+button:active { transform: scale(0.97); }
+
+/* PWA viewport fix */
+html { height: -webkit-fill-available; }
+body { min-height: 100vh; min-height: -webkit-fill-available; }
