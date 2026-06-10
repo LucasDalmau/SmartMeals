@@ -22,12 +22,12 @@ beforeAll(async () => {
 });
 
 describe("migración + seed en PGlite", () => {
-  it("siembra las 10 recetas builtin sin duplicar", async () => {
+  it("siembra las 52 recetas builtin sin duplicar", async () => {
     const rows = await db
       .select()
       .from(schema.recipes)
       .where(isNull(schema.recipes.ownerId));
-    expect(rows).toHaveLength(10);
+    expect(rows).toHaveLength(52);
   });
 
   it("crea el usuario dev", async () => {

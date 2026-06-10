@@ -1,7 +1,7 @@
 import { eq, inArray } from "drizzle-orm";
 import type { Db } from "./index";
 import * as schema from "./schema";
-import { SEED_RECIPES } from "../../data/seed/recipes";
+import { ALL_RECIPES } from "../../data/seed";
 import { DEV_USER_EMAIL } from "../auth";
 
 // Seed idempotente: upsert por clave natural (email, name de ingrediente,
@@ -19,7 +19,7 @@ export async function runSeed(db: Db) {
     string,
     { name: string; category: (typeof schema.ingredients.$inferInsert)["category"] }
   >();
-  for (const recipe of SEED_RECIPES) {
+  for (const recipe of ALL_RECIPES) {
     for (const ing of recipe.ingredients) {
       uniqueIngredients.set(ing.name, { name: ing.name, category: ing.category });
     }
@@ -38,7 +38,7 @@ export async function runSeed(db: Db) {
   // ── Recetas ──
   const recipeIdBySlug = new Map<string, string>();
 
-  for (const recipe of SEED_RECIPES) {
+  for (const recipe of ALL_RECIPES) {
     const values = {
       slug: recipe.slug,
       name: recipe.name,
@@ -109,7 +109,7 @@ export async function runSeed(db: Db) {
   }
 
   // ── Variaciones (segunda pasada: necesitan los ids de todas) ──
-  for (const recipe of SEED_RECIPES) {
+  for (const recipe of ALL_RECIPES) {
     const variationIds = recipe.variationSlugs.map((slug) => {
       const recipeId = recipeIdBySlug.get(slug);
       if (!recipeId) {

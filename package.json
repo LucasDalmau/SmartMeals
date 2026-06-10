@@ -9,7 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "db:generate": "drizzle-kit generate",
-    "db:seed": "tsx scripts/db-seed.ts"
+    "db:seed": "tsx scripts/db-seed.ts",
+    "db:import-legacy": "tsx scripts/import-legacy.ts"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.1",

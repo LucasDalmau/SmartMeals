@@ -1,21 +1,23 @@
 import { describe, expect, it } from "vitest";
-import { SEED_RECIPES } from "@/data/seed/recipes";
+import { ALL_RECIPES, LEGACY_RECIPES, SEED_RECIPES } from "@/data/seed";
 
 // Validaciones estáticas del contenido del seed. La regla de kcal viene de
 // CLAUDE.md (amendment 2): proteína 4 kcal/g, carbs 4 kcal/g, grasas 9 kcal/g,
 // con tolerancia del 5%.
 
 describe("seed: 10 recetas argentinas", () => {
-  it("tiene exactamente 10 recetas", () => {
+  it("tiene exactamente 10 recetas nuevas y 42 legacy (52 total)", () => {
     expect(SEED_RECIPES).toHaveLength(10);
+    expect(LEGACY_RECIPES).toHaveLength(42);
+    expect(ALL_RECIPES).toHaveLength(52);
   });
 
-  it("los slugs son únicos", () => {
-    const slugs = SEED_RECIPES.map((r) => r.slug);
+  it("los slugs son únicos en todo el catálogo", () => {
+    const slugs = ALL_RECIPES.map((r) => r.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it.each(SEED_RECIPES.map((r) => [r.slug, r] as const))(
+  it.each(ALL_RECIPES.map((r) => [r.slug, r] as const))(
     "%s: las calorías coinciden con los macros (±5%)",
     (_slug, recipe) => {
       const m = recipe.macrosPerServing;
@@ -25,7 +27,7 @@ describe("seed: 10 recetas argentinas", () => {
     },
   );
 
-  it.each(SEED_RECIPES.map((r) => [r.slug, r] as const))(
+  it.each(ALL_RECIPES.map((r) => [r.slug, r] as const))(
     "%s: estructura completa",
     (_slug, recipe) => {
       expect(recipe.ingredients.length).toBeGreaterThan(0);
@@ -42,8 +44,8 @@ describe("seed: 10 recetas argentinas", () => {
   );
 
   it("las variaciones apuntan a slugs existentes y no a sí mismas", () => {
-    const slugs = new Set(SEED_RECIPES.map((r) => r.slug));
-    for (const recipe of SEED_RECIPES) {
+    const slugs = new Set(ALL_RECIPES.map((r) => r.slug));
+    for (const recipe of ALL_RECIPES) {
       for (const variation of recipe.variationSlugs) {
         expect(slugs.has(variation), `${recipe.slug} → ${variation}`).toBe(true);
         expect(variation).not.toBe(recipe.slug);
@@ -52,7 +54,7 @@ describe("seed: 10 recetas argentinas", () => {
   });
 
   it("los timers son razonables (entre 10s y 2h)", () => {
-    for (const recipe of SEED_RECIPES) {
+    for (const recipe of ALL_RECIPES) {
       for (const step of recipe.steps) {
         if (step.timerSeconds !== undefined) {
           expect(step.timerSeconds).toBeGreaterThanOrEqual(10);

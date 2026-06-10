@@ -5,7 +5,8 @@
       "PowerShell(npm --version)",
       "PowerShell(Copy-Item \"C:\\\\Users\\\\Lucas\\\\Desktop\\\\meal-plan-v2\\\\src\\\\data\\\\meals.js\" \"$env:TEMP\\\\meals-v2-legacy.js\"; Copy-Item \"C:\\\\Users\\\\Lucas\\\\Downloads\\\\smartmeals-v3-prototype.jsx\" \"$env:TEMP\\\\smartmeals-v3-prototype.jsx\"; Get-ChildItem \"$env:TEMP\\\\meals-v2-legacy.js\",\"$env:TEMP\\\\smartmeals-v3-prototype.jsx\" | Select-Object Name,Length)",
       "mcp__Claude_Preview__preview_start",
-      "PowerShell(git remote add origin https://github.com/LucasDalmau/SmartMeals.git; $env:GIT_TERMINAL_PROMPT='0'; $env:GCM_INTERACTIVE='Never'; git push -u origin main --force)"
+      "PowerShell(git remote add origin https://github.com/LucasDalmau/SmartMeals.git; $env:GIT_TERMINAL_PROMPT='0'; $env:GCM_INTERACTIVE='Never'; git push -u origin main --force)",
+      "PowerShell(\\(Get-Content src\\\\lib\\\\db\\\\seed.ts\\) -replace 'SEED_RECIPES', 'ALL_RECIPES' | Set-Content -Encoding utf8 src\\\\lib\\\\db\\\\seed.ts; Select-String -Path src\\\\lib\\\\db\\\\seed.ts -Pattern 'ALL_RECIPES' | Select-Object LineNumber, Line)"
     ]
   }
 }
