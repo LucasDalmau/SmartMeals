@@ -1,0 +1,39 @@
+{
+  "common": {
+    "appName": "SmartMeals",
+    "underConstruction": "En construcción",
+    "toggleTheme": "Cambiar tema"
+  },
+  "nav": {
+    "plan": "Plan",
+    "recipes": "Recetas",
+    "shopping": "Compras",
+    "macros": "Macros",
+    "profile": "Perfil"
+  },
+  "plan": {
+    "title": "Tu semana",
+    "empty": "Acá vas a armar tu semana de comidas",
+    "phase": "Llega en la Fase 3"
+  },
+  "recipes": {
+    "title": "Recetas",
+    "empty": "Acá vas a explorar y buscar recetas",
+    "phase": "Llega en la Fase 2"
+  },
+  "shopping": {
+    "title": "Lista de compras",
+    "empty": "Acá se va a generar tu lista según el plan",
+    "phase": "Llega en la Fase 4"
+  },
+  "macros": {
+    "title": "Macros",
+    "empty": "Acá vas a seguir tu progreso vs. objetivo",
+    "phase": "Llega en la Fase 6"
+  },
+  "profile": {
+    "title": "Perfil",
+    "empty": "Acá van tu cuenta, objetivos y preferencias",
+    "phase": "Llega en la Fase 9"
+  }
+}

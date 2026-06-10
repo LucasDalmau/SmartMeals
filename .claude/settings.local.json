@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\Lucas\\\\Desktop\\\\meal-plan-v2\\\\src\\\\data\\\\meals.js\" \"$env:TEMP\\\\meals-v2-legacy.js\"; Copy-Item \"C:\\\\Users\\\\Lucas\\\\Downloads\\\\smartmeals-v3-prototype.jsx\" \"$env:TEMP\\\\smartmeals-v3-prototype.jsx\"; Get-ChildItem \"$env:TEMP\\\\meals-v2-legacy.js\",\"$env:TEMP\\\\smartmeals-v3-prototype.jsx\" | Select-Object Name,Length)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
