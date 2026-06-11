@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   boolean,
   integer,
@@ -244,3 +245,36 @@ export const macroGoals = pgTable("macro_goals", {
   weeklyCalories: real("weekly_calories").notNull(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
+
+// ── Relations (solo para la query API; no afectan las migraciones) ──────────
+
+export const recipesRelations = relations(recipes, ({ many }) => ({
+  recipeIngredients: many(recipeIngredients),
+  steps: many(steps),
+  prepItems: many(prepItems),
+}));
+
+export const recipeIngredientsRelations = relations(
+  recipeIngredients,
+  ({ one }) => ({
+    recipe: one(recipes, {
+      fields: [recipeIngredients.recipeId],
+      references: [recipes.id],
+    }),
+    ingredient: one(ingredients, {
+      fields: [recipeIngredients.ingredientId],
+      references: [ingredients.id],
+    }),
+  }),
+);
+
+export const stepsRelations = relations(steps, ({ one }) => ({
+  recipe: one(recipes, { fields: [steps.recipeId], references: [recipes.id] }),
+}));
+
+export const prepItemsRelations = relations(prepItems, ({ one }) => ({
+  recipe: one(recipes, {
+    fields: [prepItems.recipeId],
+    references: [recipes.id],
+  }),
+}));

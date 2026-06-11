@@ -2,7 +2,49 @@
   "common": {
     "appName": "SmartMeals",
     "underConstruction": "En construcción",
-    "toggleTheme": "Cambiar tema"
+    "toggleTheme": "Cambiar tema",
+    "back": "Volver",
+    "minutes": "{count} min",
+    "categories": {
+      "poultry": "Pollo",
+      "beef": "Carne",
+      "pasta": "Pasta",
+      "vegetarian": "Vegetariano",
+      "for-two": "Para dos",
+      "breakfast": "Desayuno",
+      "snack": "Snack"
+    },
+    "slots": {
+      "breakfast": "Desayuno",
+      "lunch": "Almuerzo",
+      "snack": "Merienda",
+      "dinner": "Cena"
+    },
+    "difficulty": {
+      "1": "Fácil",
+      "2": "Media",
+      "3": "Difícil"
+    },
+    "macros": {
+      "protein": "Proteína",
+      "carbs": "Carbs",
+      "fats": "Grasas",
+      "calories": "Calorías"
+    },
+    "units": {
+      "g": "g",
+      "kg": "kg",
+      "ml": "ml",
+      "l": "l",
+      "tsp": "cdta",
+      "tbsp": "cda",
+      "unit": "u",
+      "cup": "{count, plural, =1 {taza} other {tazas}}",
+      "pinch": "pizca",
+      "clove": "{count, plural, =1 {diente} other {dientes}}",
+      "slice": "{count, plural, =1 {feta} other {fetas}}"
+    },
+    "seconds": "{count} seg"
   },
   "nav": {
     "plan": "Plan",
@@ -18,8 +60,28 @@
   },
   "recipes": {
     "title": "Recetas",
-    "empty": "Acá vas a explorar y buscar recetas",
-    "phase": "Llega en la Fase 2"
+    "searchPlaceholder": "Receta o ingrediente...",
+    "all": "Todas",
+    "freezerFilter": "Apto freezer",
+    "results": "{count, plural, =0 {Sin resultados} =1 {1 receta} other {# recetas}}",
+    "noResults": "Sin resultados",
+    "noResultsHint": "Probá con otra búsqueda o quitá filtros",
+    "favorites": "Favoritas",
+    "detail": {
+      "freezable": "Apto freezer",
+      "suitableFor": "Apto para",
+      "perServing": "por porción",
+      "servings": "{count, plural, =1 {1 porción} other {# porciones}}",
+      "ingredients": "Ingredientes",
+      "steps": "Preparación",
+      "timerLabel": "{minutes} min",
+      "variations": "Recetas relacionadas",
+      "notes": "Tus notas",
+      "notesPlaceholder": "Ej: la próxima, menos sal...",
+      "notesSave": "Guardar nota",
+      "notesSaved": "Nota guardada",
+      "notFound": "No encontramos esa receta"
+    }
   },
   "shopping": {
     "title": "Lista de compras",
