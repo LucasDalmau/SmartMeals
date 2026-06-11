@@ -4,9 +4,12 @@ import { getTranslations } from "next-intl/server";
 import { ArrowLeft, Clock, Flame, Snowflake, Timer } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth";
 import { getRecipeDetail } from "@/lib/queries/recipes";
+import { isInPool } from "@/lib/queries/plan";
 import { CATEGORY_BG, SLOT_EMOJI } from "@/lib/recipe-meta";
+import { currentIsoWeek } from "@/lib/week";
 import { FavoriteButton } from "@/components/domain/favorite-button";
 import { NotesEditor } from "@/components/domain/notes-editor";
+import { PoolToggleButton } from "@/components/domain/pool-toggle-button";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +27,8 @@ export default async function RecipeDetailPage({
   const recipe = await getRecipeDetail(slug, user.id);
   if (!recipe) notFound();
 
+  const isoWeek = currentIsoWeek();
+  const inPool = await isInPool(user.id, isoWeek, recipe.id);
   const totalMinutes = recipe.prepTimeMinutes + recipe.cookTimeMinutes;
 
   return (
@@ -189,6 +194,15 @@ export default async function RecipeDetailPage({
           ))}
         </section>
       )}
+
+      {/* Agregar al pool de la semana actual */}
+      <div className="mt-5">
+        <PoolToggleButton
+          recipeId={recipe.id}
+          isoWeek={isoWeek}
+          inPool={inPool}
+        />
+      </div>
 
       {/* Notas del usuario */}
       <section className="mb-6 mt-5">

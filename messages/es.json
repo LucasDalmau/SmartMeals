@@ -55,8 +55,35 @@
   },
   "plan": {
     "title": "Tu semana",
-    "empty": "Acá vas a armar tu semana de comidas",
-    "phase": "Llega en la Fase 3"
+    "today": "HOY",
+    "todayTitle": "¿Qué comés hoy?",
+    "weekLabel": "Semana del {range}",
+    "prevWeek": "Semana anterior",
+    "nextWeek": "Semana siguiente",
+    "emptySlot": "Sin asignar",
+    "servingsShort": "×{count}",
+    "pool": {
+      "title": "Lista de prep dominical",
+      "count": "{count, plural, =1 {1 receta sin asignar día} other {# recetas sin asignar día}}",
+      "empty": "Agregá recetas desde su detalle para el batch del domingo",
+      "remove": "Quitar del pool",
+      "add": "Agregar a lista de prep",
+      "inPool": "En tu lista de prep"
+    },
+    "summary": {
+      "title": "Resumen semanal",
+      "meals": "Basado en {count, plural, =1 {1 comida planificada} other {# comidas planificadas}}",
+      "dailyAvg": "Promedio diario"
+    },
+    "assign": {
+      "fromPool": "Desde tu lista de prep",
+      "poolBadge": "PREP",
+      "all": "Todas las recetas",
+      "current": "Asignada ahora",
+      "servings": "Porciones",
+      "remove": "Quitar receta",
+      "empty": "No hay recetas aptas para este slot"
+    }
   },
   "recipes": {
     "title": "Recetas",

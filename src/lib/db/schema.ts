@@ -278,3 +278,30 @@ export const prepItemsRelations = relations(prepItems, ({ one }) => ({
     references: [recipes.id],
   }),
 }));
+
+export const weekPlansRelations = relations(weekPlans, ({ many }) => ({
+  entries: many(planEntries),
+  pool: many(poolEntries),
+}));
+
+export const planEntriesRelations = relations(planEntries, ({ one }) => ({
+  plan: one(weekPlans, {
+    fields: [planEntries.planId],
+    references: [weekPlans.id],
+  }),
+  recipe: one(recipes, {
+    fields: [planEntries.recipeId],
+    references: [recipes.id],
+  }),
+}));
+
+export const poolEntriesRelations = relations(poolEntries, ({ one }) => ({
+  plan: one(weekPlans, {
+    fields: [poolEntries.planId],
+    references: [weekPlans.id],
+  }),
+  recipe: one(recipes, {
+    fields: [poolEntries.recipeId],
+    references: [recipes.id],
+  }),
+}));
